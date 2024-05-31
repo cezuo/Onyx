@@ -1,0 +1,26 @@
+using System; 
+
+class Program { 
+    static void Main(string[] args) {        
+        const double CENTIMETERS_PER_INCH = 2.54; 
+        //First Output
+        double inches1 = 5;
+        double centimeters = inches1 * CENTIMETERS_PER_INCH;
+        Console.WriteLine($"{inches1} inches is {centimeters} centimeters.");
+        //Second Output
+        double inches2 = 50;
+        double centimeters2 = inches2 * CENTIMETERS_PER_INCH;
+        Console.WriteLine($"{inches2} inches is {centimeters2} centimeters.");
+        //Third Output
+        double inches3 = -15;
+        double centimeters3 = inches3 * CENTIMETERS_PER_INCH;
+        Console.WriteLine($"{inches3} inches is {centimeters3} centimeters.");
+        //Forth Output
+        double inches4 = 15994;
+        double centimeter4 = inches4 * CENTIMETERS_PER_INCH;
+        Console.WriteLine($"{inches4} incehs is {centimeter4} centimeters.");
+        
+    }
+}
+
+    
