@@ -1,0 +1,35 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+     
+        const double BASE_RATE = 200;
+        const double HOURLY_RATE = 150;
+        const double PER_MILE_RATE = 2;
+        //First Set of Inputs
+        double hours1 = 10;
+        double miles1 = 600;
+        double totalFee1 = BASE_RATE + (HOURLY_RATE * hours1) + (PER_MILE_RATE * miles1);
+        Console.WriteLine($"The total moving fee is: ${totalFee1}");
+      
+        //Second Set of Inputs
+        double hours2 = 6.77;
+        double miles2 = 15;
+        double totalFee2 = BASE_RATE + (HOURLY_RATE * hours2) + (PER_MILE_RATE * miles2);
+        Console.WriteLine($"The total moving fee is: ${totalFee2}");
+
+        //Third Set of Inputs
+        double hours3 = 56.25;
+        double miles3 = 325;
+        double totalFee3 = BASE_RATE + (HOURLY_RATE * hours3) + (PER_MILE_RATE * miles3);
+        Console.WriteLine($"The total moving fee is: ${totalFee3}");
+
+        //Forth Set of Inputs
+        double hours4 = 103;
+        double miles4 = 3000;
+        double TotalFee4 = BASE_RATE + (HOURLY_RATE * hours4) + (PER_MILE_RATE * miles4);
+        Console.WriteLine($"The total moving fee is: ${TotalFee4}");
+    }
+}
