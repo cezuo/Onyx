@@ -1,0 +1,29 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        const double CENTIMETERS_PER_INCH = 2.54;
+
+        Console.Write("Enter a value in inches:");
+        double inches1 = Convert.ToDouble(Console.ReadLine());
+        double centimeters1 = inches1 * CENTIMETERS_PER_INCH;
+        Console.WriteLine($"{inches1} inches is {centimeters1} centimeters.");
+
+        Console.Write("Enter another value in inches:");
+        double inches2 = Convert.ToDouble(Console.ReadLine());
+        double centimeters2 = inches2 * CENTIMETERS_PER_INCH;
+        Console.WriteLine($"{inches2} inches is {centimeters2} centimeters.");
+
+        Console.Write("Enter another value in inches: ");
+        double inches3 = Convert.ToDouble(Console.ReadLine());
+        double centimeters3 = inches3 * CENTIMETERS_PER_INCH;
+        Console.WriteLine($"{inches3} inches is {centimeters3} centimeters.");
+
+        Console.Write("Enter another value in inches: ");
+        double inches4 = Convert.ToDouble(Console.ReadLine());
+        double centimeters4 = inches4 * CENTIMETERS_PER_INCH;
+        Console.WriteLine($"{inches4} inches is {centimeters4} centimeters.");
+    }
+}
