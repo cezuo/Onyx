@@ -1,0 +1,27 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Input the message from the user
+        Console.WriteLine("Enter your message:");
+        string message = Console.ReadLine();
+
+        // Determine if the message length is within the limit
+        if (IsMessageValid(message))
+        {
+            Console.WriteLine("Posted");
+        }
+        else
+        {
+            Console.WriteLine("Rejected");
+        }
+    }
+
+    static bool IsMessageValid(string message)
+    {
+        // Check if the message length is 140 characters or less
+        return message.Length <= 140;
+    }
+}
