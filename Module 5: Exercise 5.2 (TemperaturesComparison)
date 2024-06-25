@@ -1,0 +1,79 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        const int numberOfTemperatures = 5;
+        int[] temperatures = new int[numberOfTemperatures];
+        int sum = 0;
+
+        for (int i = 0; i < numberOfTemperatures; i++)
+        {
+            temperatures[i] = GetValidTemperature(i + 1);
+            sum += temperatures[i];
+        }
+
+        string trend = DetermineTrend(temperatures);
+        Console.WriteLine(trend);
+
+        Console.Write("5-day Temperature: [");
+        for (int i = 0; i < temperatures.Length; i++)
+        {
+            Console.Write(temperatures[i]);
+            if (i < temperatures.Length - 1) Console.Write(", ");
+        }
+        Console.WriteLine("]");
+
+        double average = (double)sum / numberOfTemperatures;
+        Console.WriteLine("Average Temperature is {0} degrees", average);
+    }
+
+    static int GetValidTemperature(int day)
+    {
+        int temperature;
+        while (true)
+        {
+            Console.Write($"Enter temperature for day {day}: ");
+            if (int.TryParse(Console.ReadLine(), out temperature) && temperature >= -30 && temperature <= 130)
+            {
+                return temperature;
+            }
+            else
+            {
+                Console.WriteLine("Temperature is invalid. Please enter a valid temperature between -30 and 130.");
+            }
+        }
+    }
+
+    static string DetermineTrend(int[] temperatures)
+    {
+        bool gettingWarmer = true;
+        bool gettingColder = true;
+
+        for (int i = 1; i < temperatures.Length; i++)
+        {
+            if (temperatures[i] <= temperatures[i - 1])
+            {
+                gettingWarmer = false;
+            }
+            if (temperatures[i] >= temperatures[i - 1])
+            {
+                gettingColder = false;
+            }
+        }
+
+        if (gettingWarmer)
+        {
+            return "Getting warmer";
+        }
+        else if (gettingColder)
+        {
+            return "Getting colder";
+        }
+        else
+        {
+            return "It's a mixed bag";
+        }
+    }
+}
