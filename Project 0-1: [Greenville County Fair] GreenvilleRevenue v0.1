@@ -1,0 +1,75 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        {
+            DisplayMotto();
+            DisplayMenu();
+
+            while (true)
+            {
+                int choice = GetMenuChoice();
+
+                if (choice == 1)
+                {
+                    CalculateRevenue();
+                }
+                else if (choice == 2)
+                {
+                    ExitApplication();
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid choice. Please enter 1 or 2.");
+                }
+
+                DisplayMenu();
+            }
+        }
+
+        static void DisplayMotto()
+        {
+            Console.WriteLine("************************************");
+            Console.WriteLine("*  The stars shine in Greenville.  *");
+            Console.WriteLine("************************************");
+        }
+
+        static void DisplayMenu()
+        {
+            Console.WriteLine("\nPlease Enter the following number below from the following menu:");
+            Console.WriteLine("1. CALCULATE Greenville Revenue Year-Over-Year");
+            Console.WriteLine("2. Exit");
+        }
+
+        static int GetMenuChoice()
+        {
+            Console.Write("Enter your choice: ");
+            int.TryParse(Console.ReadLine(), out int choice);
+            return choice;
+        }
+
+        static void CalculateRevenue()
+        {
+            Console.Write("Enter last year's number of contestants: ");
+            int lastYearContestants = int.Parse(Console.ReadLine());
+
+            Console.Write("Enter this year's number of contestants: ");
+            int thisYearContestants = int.Parse(Console.ReadLine());
+
+            int revenue = thisYearContestants * 25;
+            bool isBigger = thisYearContestants > lastYearContestants;
+
+            Console.WriteLine($"\nLast year's competition had {lastYearContestants} contestants, and this year's has {thisYearContestants} contestants");
+            Console.WriteLine($"Revenue expected this year is ${revenue}");
+            Console.WriteLine($"It is {isBigger} that this year's competition is bigger than last year's.");
+        }
+
+        static void ExitApplication()
+        {
+            Console.WriteLine("Thank you for using the Greenville Revenue App, good-bye!");
+        }
+    }
+}
