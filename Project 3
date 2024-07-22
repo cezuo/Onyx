@@ -1,0 +1,61 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        while (true)
+        {
+            Console.WriteLine("Greenville Idol Contestant Tracker");
+            Console.WriteLine("1. Enter number of contestants");
+            Console.WriteLine("2. Exit");
+            Console.Write("Select an option: ");
+
+            string input = Console.ReadLine();
+
+            if (input == "1")
+            {
+                int lastYearContestants = GetValidContestants("Enter the number of contestants last year (0-30): ");
+                int thisYearContestants = GetValidContestants("Enter the number of contestants this year (0-30): ");
+
+                if (thisYearContestants > lastYearContestants * 2)
+                {
+                    Console.WriteLine("The competition is more than twice as big this year!");
+                }
+                else if (thisYearContestants > lastYearContestants)
+                {
+                    Console.WriteLine("The competition is bigger than ever!");
+                }
+                else
+                {
+                    Console.WriteLine("A tighter race this year! Come out and cast your vote!");
+                }
+            }
+            else if (input == "2")
+            {
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Invalid option, please try again.");
+            }
+        }
+    }
+
+    static int GetValidContestants(string prompt)
+    {
+        int contestants;
+        while (true)
+        {
+            Console.Write(prompt);
+            if (int.TryParse(Console.ReadLine(), out contestants) && contestants >= 0 && contestants <= 30)
+            {
+                return contestants;
+            }
+            else
+            {
+                Console.WriteLine("Invalid number, please enter a number between 0 and 30.");
+            }
+        }
+    }
+}
